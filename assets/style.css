@@ -49,8 +49,10 @@ a {
   text-transform: uppercase;
 }
 :root {
-  --clr-primary: #16a34a;
-  --clr-primary-dark: #0f7a37;
+  --clr-primary: #15b101;
+  --clr-primary_old: #16a34a;
+  --clr-primary-dark: #0f7e01;
+  --clr-primary-dark_old: #0f7a37;
   --clr-primary-light: #dcfce7;
   --clr-secondary: #f59e0b;
   --clr-secondary-light: #fef3c7;
@@ -163,6 +165,7 @@ img {
 .hw-logo,
 .hw-logo-mark {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
 }
 .preload-ring::before {
@@ -235,6 +238,9 @@ img {
 .footer-hw a:hover,
 .hw-logo .dot {
   color: var(--clr-primary);
+}
+.hw-logo .nowrap {
+  white-space: nowrap;
 }
 .hw-logo-mark {
   width: 38px;
