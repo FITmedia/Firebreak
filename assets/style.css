@@ -141,7 +141,7 @@ img {
   position: fixed;
   inset: 0;
   z-index: 9999;
-  background: linear-gradient(160deg, #0f7a37, #16a34a 55%, #22c55e);
+  background: linear-gradient(160deg, var(--clr-primary-dark), var(--clr-primary) 55%, #22c55e);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -174,13 +174,23 @@ img {
   inset: 0;
   border-radius: 50%;
   border: 4px solid rgba(255, 255, 255, 0.25);
-  border-top-color: #fff;
+  border-top-color: var(--clr-primary-dark);
+  border-bottom-color: var(--clr-primary-dark);
+  border-left-color: var(--clr-primary-dark);
+  border-right-color: var(--clr-primary-light);
   animation: 1s linear infinite spin;
+  background-color: var(--clr-primary-light);
 }
-.preload-heart {
+.preload-logo {
   font-size: 2.1rem;
   color: #fff;
   animation: 1.1s ease-in-out infinite pulse-beat;
+  background-image: url(../Firebreak_Logo.png);
+  width: 50px;
+  height: 50px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 @keyframes spin {
   to {
