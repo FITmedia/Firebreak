@@ -143,22 +143,45 @@ document.addEventListener('DOMContentLoaded', function () {
         btn.addEventListener('click', function () { burstConfetti(btn); });
     });
 
-    /* ---------- CONTACT FORM (demo submit) ---------- */
+    /* ---------- CONTACT FORM ---------- */
     var form = document.getElementById('contactForm');
     var status = document.getElementById('formStatus');
-    form.addEventListener('submit', function (e) {
+    form.addEventListener('submit', async (e) => {
         e.preventDefault();
         if (!form.checkValidity()) {
             form.classList.add('was-validated');
             return;
         }
-        status.innerHTML = '<div class="alert alert-success mt-2 mb-0" style="border-radius:12px;"><i class="bi bi-check-circle-fill me-2"></i>Thanks! Your message has been sent.</div>';
-        form.reset();
-        form.classList.remove('was-validated');
+        let inputs = form.querySelectorAll(".form-control");
+        let payload = {};
+        inputs.forEach((ea) => {
+            let id = ea.id;
+            let name = id.replace(/^cf-/,"");
+            let value = ea.value;
+            payload[name] = value;
+        });
+        try {
+            const url = "https://script.google.com/macros/s/AKfycbz2asUU2xJ9WzcS4975v3vzZZvkRdU-Z8uPnxSnGqbXqhJUeNRiU2cX3qO_iUG9GnI7/exec";
+            fetch(url, {
+                method: "POST",
+                mode: "no-cors", // Use 'no-cors' if you face CORS issues during client-side testing
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(payload)
+            })
+            .then(() => {
+                status.innerHTML = '<div class="alert alert-success mt-2 mb-0" style="border-radius:12px;"><i class="bi bi-check-circle-fill me-2"></i>Thanks! Your message has been sent.</div>';
+                form.reset();
+                form.classList.remove('was-validated');
+                console.log("Data sent successfully!");
+            })
+            .catch(err => console.error("Error:", err));
+        } catch (error) {
+            console.error("Error:", error);
+        }
     });
-
 });
-
 
 /* ---------- FAQ SEARCH + CATEGORY FILTER ---------- */
 var searchInput = document.getElementById('faqSearch');
