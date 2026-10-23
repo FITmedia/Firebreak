@@ -233,8 +233,6 @@ if (searchInput) {
 
 }
 
-
-
 /* ---------- TOC SCROLLSPY ---------- */
 var tocLinks = document.querySelectorAll('#policyToc a');
 if (tocLinks) {
