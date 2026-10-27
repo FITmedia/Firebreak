@@ -168,6 +168,8 @@ img {
   flex-wrap: wrap;
   align-items: center;
 }
+/* position: relative;
+    top: -13px;*/
 .preload-ring::before {
   content: "";
   position: absolute;
@@ -251,6 +253,9 @@ img {
 }
 .hw-logo .nowrap {
   white-space: nowrap;
+}
+.name-text-wrapper {
+  max-width: 300px;
 }
 .hw-logo-mark {
   width: 38px;
@@ -1330,6 +1335,17 @@ img {
   box-shadow: 0 -8px 24px -8px rgba(15, 23, 42, 0.15);
   padding: 12px 18px;
   display: none;
+}
+@media (max-width: 1200px) {
+  .name-text-wrapper {
+    max-width: 171px;
+    position: relative;
+    top: 10px;
+  }
+  .dot {
+    position: relative;
+    top: -12px;
+  }
 }
 @media (max-width: 767.98px) {
   .section-pad {
