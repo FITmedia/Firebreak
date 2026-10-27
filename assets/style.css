@@ -593,7 +593,8 @@ img {
   width: 52px;
   height: 52px;
   border-radius: 50%;
-  background: conic-gradient(var(--clr-secondary) 87%, #f1f5f9 0);
+  /*background: conic-gradient(var(--clr-secondary) 87%, #f1f5f9 0);*/
+  background: conic-gradient(var(--clr-primary) 100%, var(--clr-primary) 0);
   justify-content: center;
   font-weight: 800;
   font-family: var(--font-display);
